@@ -166,9 +166,9 @@
       <field name="deferral" eval="True"/>
       <field ref="a_00" name="parent"/>
     </record>
-    <record model="account.account.template" id="a_0003">
+    <record model="account.account.template" id="a_0053">
       <field name="name">Afschrijving Licenties</field>
-      <field name="code">0003</field>
+      <field name="code">0053</field>
       <field name="kind">other</field>
       <field ref="user_type_asset" name="type"/>
       <field name="deferral" eval="True"/>

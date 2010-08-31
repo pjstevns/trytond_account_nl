@@ -28,7 +28,6 @@ setup(name='trytond_modules_account_nl',
       package_dir={'trytond.modules.account_nl': '.'},
       packages=[
           'trytond.modules.account_nl',
-          'trytond.modules.account_nl',
       ],
       package_data={
           'trytond.modules.account_nl': info.get('xml', []) \

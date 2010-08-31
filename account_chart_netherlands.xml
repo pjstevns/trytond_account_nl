@@ -167,9 +167,9 @@
 					<field name="reconcile" eval="False"/>
 					<field ref="a_00" name="parent_id"/>
 				</record>
-				<record id="a_0003" model="account.account.template">
+				<record id="a_0053" model="account.account.template">
 					<field name="name">Afschrijving Licenties</field>
-					<field name="code">0003</field>
+					<field name="code">0053</field>
 					<field name="type">other</field>
 					<field name="user_type" ref="user_type_asset"/>
 					<field name="reconcile" eval="False"/>
