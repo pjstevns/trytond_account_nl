@@ -30,15 +30,19 @@ class Converter(object):
     def __init__(self, infile):
         self.intree = ET.parse(infile)
         self.maker = ElementMaker()
-        types = self.buildTypeTemplate()
-        types += self.buildTemplate()
-
-        types = tuple(types)
+        tree = []
+        tree += self.build_account_type_template()
+        tree += self.build_account_template()
+        tree += self.build_tax_code_template()
+        tree += self.build_tax_template()
+        tree += self.build_tax_rule_template()
+        tree += self.build_tax_rule_line_template()
+        tree = tuple(tree)
 
         m = self.maker
-        self.outtree = m.tryton(m.data(*types))
+        self.outtree = m.tryton(m.data(*tree))
 
-    def buildTypeTemplate(self):
+    def build_account_type_template(self):
         # account.account.type -> account.account.type.template
         m = self.maker
         r = []
@@ -66,7 +70,7 @@ class Converter(object):
         return r
 
 
-    def buildTemplate(self):
+    def build_account_template(self):
         # account.account.template
         m = self.maker
         r = []
@@ -106,6 +110,60 @@ class Converter(object):
             f = tuple(f)
             r.append(m.record(*f, model='account.account.template', id=id))
         return r
+
+    def build_tax_group(self):
+        return []
+
+    def build_tax_code_template(self):
+        l = self.intree.xpath("/openerp/data/record[@model='account.tax.code.template']")
+        m = self.maker
+        r = []
+        origroot = None
+        for e in l:
+            f = []
+            id = e.get("id")
+            name = e.xpath("field[@name='name']")[0].text
+            code = e.xpath("field[@name='code']")
+            parent = e.xpath("field[@name='parent_id']")
+            if not parent: continue
+            if parent[0].get("eval"):
+                if not eval(parent[0].get("eval")):
+                    origroot=id
+                    r.append(
+                        m.record(
+                            m.field(name, name=name),
+                            m.field(name='account',ref='root'),
+                            model="account.tax.code.template",
+                            id="tax_code_nl"
+                        )
+                    )
+                    continue
+
+            f.append(m.field(name, name='name'))
+            f.append(m.field(name='account',ref='root'))
+
+            parent = parent[0].get("ref")
+            if parent == origroot:
+                parent = "tax_code_nl"
+            f.append(m.field(name='parent', ref=parent))
+        
+            if code:
+                code = code[0].text
+                f.append(m.field(code, name='code'))
+
+            f = tuple(f)
+            r.append(m.record(*f, model='account.tax.code.template', id=id))
+
+        return r
+
+    def build_tax_template(self):
+        return []
+
+    def build_tax_rule_template(self):
+        return []
+
+    def build_tax_rule_line_template(self):
+        return []
 
 
     def write(self, outfile=None):
