@@ -131,8 +131,8 @@ class Converter(object):
                     origroot=id
                     r.append(
                         m.record(
-                            m.field(name, name=name),
-                            m.field(name='account',ref='root'),
+                            m.field(name, name='name'),
+                            m.field(name='account',ref='a_root'),
                             model="account.tax.code.template",
                             id="tax_code_nl"
                         )
@@ -140,7 +140,7 @@ class Converter(object):
                     continue
 
             f.append(m.field(name, name='name'))
-            f.append(m.field(name='account',ref='root'))
+            f.append(m.field(name='account',ref='a_root'))
 
             parent = parent[0].get("ref")
             if parent == origroot:
