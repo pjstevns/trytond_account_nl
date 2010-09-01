@@ -2,6 +2,7 @@
 #this repository contains the full copyright notices and license terms.
 {
     'name': 'Account Netherlands',
+    'name_nl_NL': 'Boekhouding Nederland',
     'version': '1.7.0',
     'author': 'NFG',
     'email': 'info@nfg.nl',
@@ -17,5 +18,8 @@ Usefull to create a Dutch account chart with the wizard in
     ],
     'xml': [
         'account_nl.xml',
+    ],
+    'translation': [
+        'nl_NL.csv',
     ],
 }

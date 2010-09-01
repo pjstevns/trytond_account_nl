@@ -7,7 +7,7 @@ import lxml.etree as ET
 from lxml.builder import ElementMaker
 
 INFILE="account_chart_netherlands.xml"
-OUTFILE="account_nl.xml.new"
+OUTFILE="account_nl.xml"
 
 
 class Converter(object):
@@ -190,6 +190,8 @@ class Converter(object):
             if description: 
                 description = description[0].text
                 f.append(m.field(description, name='description'))
+            else:
+                f.append(m.field(name, name='description'))
 
             amount             = e.xpath("field[@name='amount']")
             if amount: 
@@ -260,6 +262,8 @@ class Converter(object):
 
             tax_type           = e.xpath("field[@name='type_tax_use']")[0].text
             f.append(m.field(name='group', ref='tax_group_%s' % tax_type))
+
+            f.append(m.field(name='account', ref='a_root'))
 
             f = tuple(f)
             r.append(
