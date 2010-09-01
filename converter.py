@@ -34,6 +34,7 @@ class Converter(object):
         tree += self.build_account_type_template()
         tree += self.build_account_template()
         tree += self.build_tax_code_template()
+        tree += self.build_tax_group()
         tree += self.build_tax_template()
         tree += self.build_tax_rule_template()
         tree += self.build_tax_rule_line_template()
@@ -111,9 +112,6 @@ class Converter(object):
             r.append(m.record(*f, model='account.account.template', id=id))
         return r
 
-    def build_tax_group(self):
-        return []
-
     def build_tax_code_template(self):
         l = self.intree.xpath("/openerp/data/record[@model='account.tax.code.template']")
         m = self.maker
@@ -156,8 +154,119 @@ class Converter(object):
 
         return r
 
+    def build_tax_group(self):
+        m = self.maker
+        r = []
+        r.append(
+            m.record(
+                m.field("B.T.W. Verkoop", name="name"),
+                m.field("B.T.W. Verkoop", name="code"),
+                model="account.tax.group",
+                id="tax_group_sale",
+            )
+        )
+        r.append(
+            m.record(
+                m.field("B.T.W. Inkoop", name="name"),
+                m.field("B.T.W. Inkoop", name="code"),
+                model="account.tax.group",
+                id="tax_group_purchase",
+            )
+        )
+        return r
+
     def build_tax_template(self):
-        return []
+        model="account.tax.template"
+        l = self.intree.xpath("/openerp/data/record[@model='%s']" % model)
+        m = self.maker
+        r = []
+        for e in l:
+            f = []
+            id = e.get("id")
+            name               = e.xpath("field[@name='name']")[0].text
+            f.append(m.field(name, name='name'))
+            
+            description        = e.xpath("field[@name='description']")
+            if description: 
+                description = description[0].text
+                f.append(m.field(description, name='description'))
+
+            amount             = e.xpath("field[@name='amount']")
+            if amount: 
+                amount = int(float(amount[0].get("eval")) * 100)
+                f.append(
+                    m.field(
+                        name='percentage', 
+                        eval="Decimal('%d')" % amount,
+                    )
+                )
+                f.append(m.field('percentage', name='type'))
+
+            account_collected  = e.xpath("field[@name='account_collected_id']")
+            if account_collected: 
+                account_collected = account_collected[0].get("ref")
+                f.append(
+                    m.field(
+                        name='invoice_account',ref=account_collected
+                    )
+                )
+
+            account_paid       = e.xpath("field[@name='account_paid_id']")
+            if account_paid: 
+                account_paid = account_paid[0].get("ref")
+                f.append(
+                    m.field(
+                        name='credit_note_account',
+                        ref=account_paid
+                    )
+                )
+            
+            tax_code           = e.xpath("field[@name='tax_code_id']")
+            if tax_code: 
+                tax_code = tax_code[0].get("ref")
+                f.append(m.field(name='invoice_base_code', ref=tax_code))
+                f.append(m.field(name='invoice_tax_code', ref=tax_code))
+
+            tax_sign           = e.xpath("field[@name='tax_sign']")
+            if tax_sign: 
+                tax_sign = tax_sign[0].get("eval")
+                f.append(m.field(name='invoice_tax_sign', eval=tax_sign))
+
+            base_sign          = e.xpath("field[@name='base_sign']")
+            if base_sign: 
+                base_sign = base_sign[0].get("eval")
+                f.append(m.field(name='invoice_base_sign', eval=base_sign))
+           
+            ref_tax_code       = e.xpath("field[@name='ref_tax_code_id']")
+            if ref_tax_code: 
+                ref_tax_code = ref_tax_code[0].get("ref")
+                f.append(m.field(name='credit_note_base_code', ref=ref_tax_code))
+                f.append(m.field(name='credit_note_tax_code', ref=ref_tax_code))
+
+            ref_base_sign      = e.xpath("field[@name='ref_base_sign']")
+            if ref_base_sign: 
+                ref_base_sign = ref_base_sign[0].get("eval")
+                f.append(m.field(name='credit_note_base_sign', eval=ref_base_sign))
+
+            ref_tax_sign       = e.xpath("field[@name='ref_tax_sign']")
+            if ref_tax_sign: 
+                ref_tax_sign = ref_tax_sign[0].get("eval")
+                f.append(m.field(name='credit_note_tax_sign', eval=ref_tax_sign))
+
+            parent             = e.xpath("field[@name='parent_id']")
+            if parent:
+                parent = parent[0].get("ref")
+                f.append(m.field(name='parent', ref=parent))
+
+            tax_type           = e.xpath("field[@name='type_tax_use']")[0].text
+            f.append(m.field(name='group', ref='tax_group_%s' % tax_type))
+
+            f = tuple(f)
+            r.append(
+                m.record(*f, id=id, model=model)
+            )
+
+        return r
 
     def build_tax_rule_template(self):
         return []
