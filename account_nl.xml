@@ -59,7 +59,7 @@
       <field ref="nl" name="parent"/>
       <field name="balance_sheet" eval="True"/>
     </record>
-    <record model="account.account.template" id="a_root">
+    <record model="account.account.template" id="root_nl">
       <field name="name">NEDERLANDS STANDAARD GROOTBOEKSCHEMA</field>
       <field name="kind">view</field>
       <field ref="nl" name="type"/>
@@ -69,7 +69,7 @@
       <field name="code">RUBRIEK 0</field>
       <field name="kind">view</field>
       <field ref="user_type_view" name="type"/>
-      <field ref="a_root" name="parent"/>
+      <field ref="root_nl" name="parent"/>
     </record>
     <record model="account.account.template" id="a_00">
       <field name="name">IMMATERIELE ACTIVA</field>
@@ -1262,7 +1262,7 @@
       <field name="code">RUBRIEK 1</field>
       <field name="kind">view</field>
       <field ref="user_type_view" name="type"/>
-      <field ref="a_root" name="parent"/>
+      <field ref="root_nl" name="parent"/>
     </record>
     <record model="account.account.template" id="a_10">
       <field name="name">LIQUIDE MIDDELEN</field>
@@ -1698,7 +1698,7 @@
       <field name="code">RUBRIEK 2</field>
       <field name="kind">view</field>
       <field ref="user_type_view" name="type"/>
-      <field ref="a_root" name="parent"/>
+      <field ref="root_nl" name="parent"/>
     </record>
     <record model="account.account.template" id="a_2000">
       <field name="name">Netto lonen</field>
@@ -1921,7 +1921,7 @@
       <field name="code">RUBRIEK 3</field>
       <field name="kind">view</field>
       <field ref="user_type_view" name="type"/>
-      <field ref="a_root" name="parent"/>
+      <field ref="root_nl" name="parent"/>
     </record>
     <record model="account.account.template" id="a_3000">
       <field name="name">Goederen 1</field>
@@ -2064,7 +2064,7 @@
       <field name="code">RUBRIEK 4</field>
       <field name="kind">view</field>
       <field ref="user_type_view" name="type"/>
-      <field ref="a_root" name="parent"/>
+      <field ref="root_nl" name="parent"/>
     </record>
     <record model="account.account.template" id="a_40">
       <field name="name">PERSONEELSKOSTEN</field>
@@ -3365,21 +3365,21 @@
       <field name="code">RUBRIEK 5</field>
       <field name="kind">view</field>
       <field ref="user_type_view" name="type"/>
-      <field ref="a_root" name="parent"/>
+      <field ref="root_nl" name="parent"/>
     </record>
     <record model="account.account.template" id="a_6">
       <field name="name">FABRIKAGEREKENINGEN</field>
       <field name="code">RUBRIEK 6</field>
       <field name="kind">view</field>
       <field ref="user_type_view" name="type"/>
-      <field ref="a_root" name="parent"/>
+      <field ref="root_nl" name="parent"/>
     </record>
     <record model="account.account.template" id="a_7">
       <field name="name">VOORRAAD GEREED PRODUCT EN ONDERHANDEN WERK</field>
       <field name="code">RUBRIEK 7</field>
       <field name="kind">view</field>
       <field ref="user_type_view" name="type"/>
-      <field ref="a_root" name="parent"/>
+      <field ref="root_nl" name="parent"/>
     </record>
     <record model="account.account.template" id="a_7000">
       <field name="name">Inkopen nul</field>
@@ -3634,7 +3634,7 @@
       <field name="code">RUBRIEK 8</field>
       <field name="kind">view</field>
       <field ref="user_type_view" name="type"/>
-      <field ref="a_root" name="parent"/>
+      <field ref="root_nl" name="parent"/>
     </record>
     <record model="account.account.template" id="a_8000">
       <field name="name">Verkopen fabric. 0 % EU</field>
@@ -3809,7 +3809,7 @@
       <field name="code">RUBRIEK 9</field>
       <field name="kind">view</field>
       <field ref="user_type_view" name="type"/>
-      <field ref="a_root" name="parent"/>
+      <field ref="root_nl" name="parent"/>
     </record>
     <record model="account.account.template" id="a_9000">
       <field name="name">Opbrengsten deelnemingen</field>
@@ -3885,211 +3885,211 @@
     </record>
     <record model="account.tax.code.template" id="tax_code_nl">
       <field name="name">Nederlands BTW Plan</field>
-      <field ref="a_root" name="account"/>
+      <field ref="root_nl" name="account"/>
     </record>
     <record model="account.tax.code.template" id="btw_totaal">
       <field name="name">Gegevens omzetbelasting (BTW)</field>
-      <field ref="a_root" name="account"/>
+      <field ref="root_nl" name="account"/>
       <field ref="tax_code_nl" name="parent"/>
     </record>
     <record model="account.tax.code.template" id="btw_code_binnenland">
       <field name="name">1 Leveringen en/of diensten binnenland (BTW)</field>
-      <field ref="a_root" name="account"/>
+      <field ref="root_nl" name="account"/>
       <field ref="btw_totaal" name="parent"/>
     </record>
     <record model="account.tax.code.template" id="btw_code_1a">
       <field name="name">Leveringen/diensten belast met 19% (BTW)</field>
-      <field ref="a_root" name="account"/>
+      <field ref="root_nl" name="account"/>
       <field ref="btw_code_binnenland" name="parent"/>
       <field name="code">1a</field>
     </record>
     <record model="account.tax.code.template" id="btw_code_1b">
       <field name="name">Leveringen/diensten belast met 6% (BTW)</field>
-      <field ref="a_root" name="account"/>
+      <field ref="root_nl" name="account"/>
       <field ref="btw_code_binnenland" name="parent"/>
       <field name="code">1b</field>
     </record>
     <record model="account.tax.code.template" id="btw_code_1c">
       <field name="name">Leveringen/diensten belast met overige tarieven behalve 0% (BTW)</field>
-      <field ref="a_root" name="account"/>
+      <field ref="root_nl" name="account"/>
       <field ref="btw_code_binnenland" name="parent"/>
       <field name="code">1c</field>
     </record>
     <record model="account.tax.code.template" id="btw_code_1d">
       <field name="name">Prive-gebruik (BTW)</field>
-      <field ref="a_root" name="account"/>
+      <field ref="root_nl" name="account"/>
       <field ref="btw_code_binnenland" name="parent"/>
       <field name="code">1d</field>
     </record>
     <record model="account.tax.code.template" id="btw_code_1e">
       <field name="name">Leveringen/diensten belast met 0% of niet bij u belast (BTW)</field>
-      <field ref="a_root" name="account"/>
+      <field ref="root_nl" name="account"/>
       <field ref="btw_code_binnenland" name="parent"/>
       <field name="code">1e</field>
     </record>
     <record model="account.tax.code.template" id="btw_code_verlegging">
       <field name="name">2 Verleggingsregelingen: BTW naar u verlegd (BTW)</field>
-      <field ref="a_root" name="account"/>
+      <field ref="root_nl" name="account"/>
       <field ref="btw_totaal" name="parent"/>
     </record>
     <record model="account.tax.code.template" id="btw_code_2a">
       <field name="name">Leveringen/diensten waarbij de heffing van omzetbelasting naar u is verlegd (BTW)</field>
-      <field ref="a_root" name="account"/>
+      <field ref="root_nl" name="account"/>
       <field ref="btw_code_verlegging" name="parent"/>
       <field name="code">2a</field>
     </record>
     <record model="account.tax.code.template" id="btw_code_vanuit_buitenland">
       <field name="name">4 Leveringen vanuit het buitenland (BTW)</field>
-      <field ref="a_root" name="account"/>
+      <field ref="root_nl" name="account"/>
       <field ref="btw_totaal" name="parent"/>
     </record>
     <record model="account.tax.code.template" id="btw_code_4a">
       <field name="name">Leveringen uit landen buiten de EU (invoer) (BTW)</field>
-      <field ref="a_root" name="account"/>
+      <field ref="root_nl" name="account"/>
       <field ref="btw_code_vanuit_buitenland" name="parent"/>
       <field name="code">4a</field>
     </record>
     <record model="account.tax.code.template" id="btw_code_4b">
       <field name="name">Verwerving van goederen uit landen binnen de EU (BTW)</field>
-      <field ref="a_root" name="account"/>
+      <field ref="root_nl" name="account"/>
       <field ref="btw_code_vanuit_buitenland" name="parent"/>
       <field name="code">4b</field>
     </record>
     <record model="account.tax.code.template" id="btw_code_voorbelasting">
       <field name="name">5 Voorbelasting, kleineondernemersregeling, schatting en eindtotaal (BTW)</field>
-      <field ref="a_root" name="account"/>
+      <field ref="root_nl" name="account"/>
       <field ref="btw_totaal" name="parent"/>
     </record>
     <record model="account.tax.code.template" id="btw_code_5a">
       <field name="name">Verschuldigde omzetbelasting (rubrieken 1a t/m 4b) (BTW)</field>
-      <field ref="a_root" name="account"/>
+      <field ref="root_nl" name="account"/>
       <field ref="btw_code_voorbelasting" name="parent"/>
       <field name="code">5a</field>
     </record>
     <record model="account.tax.code.template" id="btw_code_5b">
       <field name="name">Voorbelasting (BTW)</field>
-      <field ref="a_root" name="account"/>
+      <field ref="root_nl" name="account"/>
       <field ref="btw_code_voorbelasting" name="parent"/>
       <field name="code">5b</field>
     </record>
     <record model="account.tax.code.template" id="btw_code_5c">
       <field name="name">Subtotaal (rubriek 5a min 5b) (BTW)</field>
-      <field ref="a_root" name="account"/>
+      <field ref="root_nl" name="account"/>
       <field ref="btw_code_voorbelasting" name="parent"/>
       <field name="code">5c</field>
     </record>
     <record model="account.tax.code.template" id="btw_code_5d">
       <field name="name">Vermindering volgens de kleineondernemersregeling (BTW)</field>
-      <field ref="a_root" name="account"/>
+      <field ref="root_nl" name="account"/>
       <field ref="btw_code_voorbelasting" name="parent"/>
       <field name="code">5d</field>
     </record>
     <record model="account.tax.code.template" id="btw_code_5e">
       <field name="name">Schatting vorige aangifte(n) (BTW)</field>
-      <field ref="a_root" name="account"/>
+      <field ref="root_nl" name="account"/>
       <field ref="btw_code_voorbelasting" name="parent"/>
       <field name="code">5e</field>
     </record>
     <record model="account.tax.code.template" id="btw_code_5f">
       <field name="name">Schatting deze aangifte (BTW)</field>
-      <field ref="a_root" name="account"/>
+      <field ref="root_nl" name="account"/>
       <field ref="btw_code_voorbelasting" name="parent"/>
       <field name="code">5f</field>
     </record>
     <record model="account.tax.code.template" id="btw_code_5g">
       <field name="name">Totaal te betalen/terug te vragen (BTW)</field>
-      <field ref="a_root" name="account"/>
+      <field ref="root_nl" name="account"/>
       <field ref="btw_code_voorbelasting" name="parent"/>
       <field name="code">5g</field>
     </record>
     <record model="account.tax.code.template" id="omz_totaal">
       <field name="name">Gegevens omzetbedragen</field>
-      <field ref="a_root" name="account"/>
+      <field ref="root_nl" name="account"/>
       <field ref="tax_code_nl" name="parent"/>
     </record>
     <record model="account.tax.code.template" id="omz_code_binnenland">
       <field name="name">1 Leveringen en/of diensten binnenland (omzet)</field>
-      <field ref="a_root" name="account"/>
+      <field ref="root_nl" name="account"/>
       <field ref="omz_totaal" name="parent"/>
     </record>
     <record model="account.tax.code.template" id="omz_code_1a">
       <field name="name">Leveringen/diensten belast met 19% (omzet)</field>
-      <field ref="a_root" name="account"/>
+      <field ref="root_nl" name="account"/>
       <field ref="omz_code_binnenland" name="parent"/>
       <field name="code">1a</field>
     </record>
     <record model="account.tax.code.template" id="omz_code_1b">
       <field name="name">Leveringen/diensten belast met 6% (omzet)</field>
-      <field ref="a_root" name="account"/>
+      <field ref="root_nl" name="account"/>
       <field ref="omz_code_binnenland" name="parent"/>
       <field name="code">1b</field>
     </record>
     <record model="account.tax.code.template" id="omz_code_1c">
       <field name="name">Leveringen/diensten belast met overige tarieven behalve 0% (omzet)</field>
-      <field ref="a_root" name="account"/>
+      <field ref="root_nl" name="account"/>
       <field ref="omz_code_binnenland" name="parent"/>
       <field name="code">1c</field>
     </record>
     <record model="account.tax.code.template" id="omz_code_1d">
       <field name="name">Prive-gebruik (omzet)</field>
-      <field ref="a_root" name="account"/>
+      <field ref="root_nl" name="account"/>
       <field ref="omz_code_binnenland" name="parent"/>
       <field name="code">1d</field>
     </record>
     <record model="account.tax.code.template" id="omz_code_1e">
       <field name="name">Leveringen/diensten belast met 0% of niet bij u belast (omzet)</field>
-      <field ref="a_root" name="account"/>
+      <field ref="root_nl" name="account"/>
       <field ref="omz_code_binnenland" name="parent"/>
       <field name="code">1e</field>
     </record>
     <record model="account.tax.code.template" id="omz_code_verlegging">
       <field name="name">2 Verleggingsregelingen: BTW naar u verlegd (omzet)</field>
-      <field ref="a_root" name="account"/>
+      <field ref="root_nl" name="account"/>
       <field ref="omz_totaal" name="parent"/>
     </record>
     <record model="account.tax.code.template" id="omz_code_2a">
       <field name="name">Leveringen/diensten waarbij de heffing van omzetbelasting naar u is verlegd (omzet)</field>
-      <field ref="a_root" name="account"/>
+      <field ref="root_nl" name="account"/>
       <field ref="omz_code_verlegging" name="parent"/>
       <field name="code">2a</field>
     </record>
     <record model="account.tax.code.template" id="omz_code_naar_buitenland">
       <field name="name">3 Leveringen naar het buitenland (omzet)</field>
-      <field ref="a_root" name="account"/>
+      <field ref="root_nl" name="account"/>
       <field ref="omz_totaal" name="parent"/>
     </record>
     <record model="account.tax.code.template" id="omz_code_3a">
       <field name="name">Leveringen naar landen buiten de EU (uitvoer) (omzet)</field>
-      <field ref="a_root" name="account"/>
+      <field ref="root_nl" name="account"/>
       <field ref="omz_code_naar_buitenland" name="parent"/>
       <field name="code">3a</field>
     </record>
     <record model="account.tax.code.template" id="omz_code_3b">
       <field name="name">Leveringen naar landen binnen de EU (omzet)</field>
-      <field ref="a_root" name="account"/>
+      <field ref="root_nl" name="account"/>
       <field ref="omz_code_naar_buitenland" name="parent"/>
       <field name="code">3b</field>
     </record>
     <record model="account.tax.code.template" id="omz_code_3c">
       <field name="name">Installatie/afstandsverkopen binnen de EU (omzet)</field>
-      <field ref="a_root" name="account"/>
+      <field ref="root_nl" name="account"/>
       <field ref="omz_code_naar_buitenland" name="parent"/>
       <field name="code">3c</field>
     </record>
     <record model="account.tax.code.template" id="omz_code_vanuit_buitenland">
       <field name="name">4 Leveringen vanuit het buitenland (omzet)</field>
-      <field ref="a_root" name="account"/>
+      <field ref="root_nl" name="account"/>
       <field ref="omz_totaal" name="parent"/>
     </record>
     <record model="account.tax.code.template" id="omz_code_4a">
       <field name="name">Leveringen uit landen buiten de EU (invoer) (omzet)</field>
-      <field ref="a_root" name="account"/>
+      <field ref="root_nl" name="account"/>
       <field ref="omz_code_vanuit_buitenland" name="parent"/>
       <field name="code">4a</field>
     </record>
     <record model="account.tax.code.template" id="omz_code_4b">
       <field name="name">Verwerving van goederen uit landen binnen de EU (omzet)</field>
-      <field ref="a_root" name="account"/>
+      <field ref="root_nl" name="account"/>
       <field ref="omz_code_vanuit_buitenland" name="parent"/>
       <field name="code">4b</field>
     </record>
@@ -4104,21 +4104,21 @@
     <record model="account.tax.template" id="btw_0">
       <field name="name">Verkopen/omzet onbelast (nul-tarief)</field>
       <field name="description">0% BTW</field>
-      <field name="percentage" eval="Decimal('0')"/>
-      <field name="type">percentage</field>
       <field ref="vat_payable0" name="invoice_account"/>
       <field ref="vat_payable0" name="credit_note_account"/>
+      <field name="percentage" eval="Decimal('0')"/>
+      <field name="type">percentage</field>
       <field name="credit_note_base_sign" eval="-1"/>
       <field ref="tax_group_sale" name="group"/>
-      <field ref="a_root" name="account"/>
+      <field ref="root_nl" name="account"/>
     </record>
     <record model="account.tax.template" id="btw_6">
       <field name="name">Verkopen/omzet laag</field>
       <field name="description">6% BTW</field>
-      <field name="percentage" eval="Decimal('6')"/>
-      <field name="type">percentage</field>
       <field ref="vat_payable6" name="invoice_account"/>
       <field ref="vat_payable6" name="credit_note_account"/>
+      <field name="percentage" eval="Decimal('6')"/>
+      <field name="type">percentage</field>
       <field ref="btw_code_1b" name="invoice_base_code"/>
       <field ref="btw_code_1b" name="invoice_tax_code"/>
       <field ref="btw_code_1b" name="credit_note_base_code"/>
@@ -4126,15 +4126,15 @@
       <field name="credit_note_base_sign" eval="-1"/>
       <field name="credit_note_tax_sign" eval="-1"/>
       <field ref="tax_group_sale" name="group"/>
-      <field ref="a_root" name="account"/>
+      <field ref="root_nl" name="account"/>
     </record>
     <record model="account.tax.template" id="btw_19">
       <field name="name">Verkopen/omzet hoog</field>
       <field name="description">19% BTW</field>
-      <field name="percentage" eval="Decimal('19')"/>
-      <field name="type">percentage</field>
       <field ref="vat_payable19" name="invoice_account"/>
       <field ref="vat_payable19" name="credit_note_account"/>
+      <field name="percentage" eval="Decimal('19')"/>
+      <field name="type">percentage</field>
       <field ref="btw_code_1a" name="invoice_base_code"/>
       <field ref="btw_code_1a" name="invoice_tax_code"/>
       <field ref="btw_code_1a" name="credit_note_base_code"/>
@@ -4142,15 +4142,15 @@
       <field name="credit_note_base_sign" eval="-1"/>
       <field name="credit_note_tax_sign" eval="-1"/>
       <field ref="tax_group_sale" name="group"/>
-      <field ref="a_root" name="account"/>
+      <field ref="root_nl" name="account"/>
     </record>
     <record model="account.tax.template" id="btw_overig">
       <field name="name">Verkopen/omzet overig</field>
       <field name="description">variabel BTW</field>
-      <field name="percentage" eval="Decimal('19')"/>
-      <field name="type">percentage</field>
       <field ref="vat_payable19" name="invoice_account"/>
       <field ref="vat_payable19" name="credit_note_account"/>
+      <field name="percentage" eval="Decimal('19')"/>
+      <field name="type">percentage</field>
       <field ref="btw_code_1a" name="invoice_base_code"/>
       <field ref="btw_code_1a" name="invoice_tax_code"/>
       <field ref="btw_code_1a" name="credit_note_base_code"/>
@@ -4158,15 +4158,15 @@
       <field name="credit_note_base_sign" eval="-1"/>
       <field name="credit_note_tax_sign" eval="-1"/>
       <field ref="tax_group_sale" name="group"/>
-      <field ref="a_root" name="account"/>
+      <field ref="root_nl" name="account"/>
     </record>
     <record model="account.tax.template" id="btw_6_buy">
       <field name="name">BTW te vorderen laag (inkopen)</field>
       <field name="description">6% BTW</field>
-      <field name="percentage" eval="Decimal('6')"/>
-      <field name="type">percentage</field>
       <field ref="vat_refund6" name="invoice_account"/>
       <field ref="vat_refund6" name="credit_note_account"/>
+      <field name="percentage" eval="Decimal('6')"/>
+      <field name="type">percentage</field>
       <field ref="btw_code_5b" name="invoice_base_code"/>
       <field ref="btw_code_5b" name="invoice_tax_code"/>
       <field ref="btw_code_5b" name="credit_note_base_code"/>
@@ -4174,15 +4174,15 @@
       <field name="credit_note_base_sign" eval="-1"/>
       <field name="credit_note_tax_sign" eval="-1"/>
       <field ref="tax_group_purchase" name="group"/>
-      <field ref="a_root" name="account"/>
+      <field ref="root_nl" name="account"/>
     </record>
     <record model="account.tax.template" id="btw_19_buy">
       <field name="name">BTW te vorderen hoog (inkopen)</field>
       <field name="description">19% BTW</field>
-      <field name="percentage" eval="Decimal('19')"/>
-      <field name="type">percentage</field>
       <field ref="vat_refund19" name="invoice_account"/>
       <field ref="vat_refund19" name="credit_note_account"/>
+      <field name="percentage" eval="Decimal('19')"/>
+      <field name="type">percentage</field>
       <field ref="btw_code_5b" name="invoice_base_code"/>
       <field ref="btw_code_5b" name="invoice_tax_code"/>
       <field ref="btw_code_5b" name="credit_note_base_code"/>
@@ -4190,15 +4190,15 @@
       <field name="credit_note_base_sign" eval="-1"/>
       <field name="credit_note_tax_sign" eval="-1"/>
       <field ref="tax_group_purchase" name="group"/>
-      <field ref="a_root" name="account"/>
+      <field ref="root_nl" name="account"/>
     </record>
     <record model="account.tax.template" id="btw_overig_buy">
       <field name="name">BTW te vorderen overig (inkopen)</field>
       <field name="description">variabel BTW</field>
-      <field name="percentage" eval="Decimal('19')"/>
-      <field name="type">percentage</field>
       <field ref="vat_refund19" name="invoice_account"/>
       <field ref="vat_refund19" name="credit_note_account"/>
+      <field name="percentage" eval="Decimal('19')"/>
+      <field name="type">percentage</field>
       <field ref="btw_code_5b" name="invoice_base_code"/>
       <field ref="btw_code_5b" name="invoice_tax_code"/>
       <field ref="btw_code_5b" name="credit_note_base_code"/>
@@ -4206,37 +4206,37 @@
       <field name="credit_note_base_sign" eval="-1"/>
       <field name="credit_note_tax_sign" eval="-1"/>
       <field ref="tax_group_purchase" name="group"/>
-      <field ref="a_root" name="account"/>
+      <field ref="root_nl" name="account"/>
     </record>
     <record model="account.tax.template" id="btw_verk_0">
       <field name="name">BTW af te dragen verlegd (verkopen)</field>
       <field name="description">0% BTW verlegd</field>
-      <field name="percentage" eval="Decimal('0')"/>
-      <field name="type">percentage</field>
       <field ref="vat_payable_verlegd" name="invoice_account"/>
       <field ref="vat_payable_verlegd" name="credit_note_account"/>
+      <field name="percentage" eval="Decimal('0')"/>
+      <field name="type">percentage</field>
       <field name="credit_note_base_sign" eval="-1"/>
       <field name="credit_note_tax_sign" eval="-1"/>
       <field ref="tax_group_purchase" name="group"/>
-      <field ref="a_root" name="account"/>
+      <field ref="root_nl" name="account"/>
     </record>
     <record model="account.tax.template" id="btw_ink_0">
       <field name="name">BTW af te dragen verlegd (inkopen)</field>
       <field name="description">19% BTW verlegd</field>
-      <field name="percentage" eval="Decimal('19')"/>
-      <field name="type">percentage</field>
       <field ref="vat_payable_verlegd" name="invoice_account"/>
       <field ref="vat_payable_verlegd" name="credit_note_account"/>
+      <field name="percentage" eval="Decimal('19')"/>
+      <field name="type">percentage</field>
       <field ref="tax_group_purchase" name="group"/>
-      <field ref="a_root" name="account"/>
+      <field ref="root_nl" name="account"/>
     </record>
     <record model="account.tax.template" id="btw_ink_0_1">
       <field name="name">BTW af te dragen verlegd (inkopen1)</field>
       <field name="description">BTW af te dragen verlegd (inkopen1)</field>
-      <field name="percentage" eval="Decimal('-100')"/>
-      <field name="type">percentage</field>
       <field ref="vat_payable_verlegd" name="invoice_account"/>
       <field ref="vat_payable_verlegd" name="credit_note_account"/>
+      <field name="percentage" eval="Decimal('-100')"/>
+      <field name="type">percentage</field>
       <field ref="btw_code_2a" name="invoice_base_code"/>
       <field ref="btw_code_2a" name="invoice_tax_code"/>
       <field name="invoice_tax_sign" eval="-1"/>
@@ -4245,15 +4245,15 @@
       <field ref="btw_code_2a" name="credit_note_tax_code"/>
       <field ref="btw_ink_0" name="parent"/>
       <field ref="tax_group_purchase" name="group"/>
-      <field ref="a_root" name="account"/>
+      <field ref="root_nl" name="account"/>
     </record>
     <record model="account.tax.template" id="btw_ink_0_2">
       <field name="name">BTW af te dragen verlegd (inkopen2)</field>
       <field name="description">BTW af te dragen verlegd (inkopen2)</field>
-      <field name="percentage" eval="Decimal('-100')"/>
-      <field name="type">percentage</field>
       <field ref="vat_payable_verlegd" name="invoice_account"/>
       <field ref="vat_payable_verlegd" name="credit_note_account"/>
+      <field name="percentage" eval="Decimal('-100')"/>
+      <field name="type">percentage</field>
       <field ref="btw_code_5b" name="invoice_base_code"/>
       <field ref="btw_code_5b" name="invoice_tax_code"/>
       <field ref="btw_code_5b" name="credit_note_base_code"/>
@@ -4262,25 +4262,25 @@
       <field name="credit_note_tax_sign" eval="-1"/>
       <field ref="btw_ink_0" name="parent"/>
       <field ref="tax_group_purchase" name="group"/>
-      <field ref="a_root" name="account"/>
+      <field ref="root_nl" name="account"/>
     </record>
     <record model="account.tax.template" id="btw_ink2_0">
       <field name="name">BTW te vorderen verlegd (inkopen)</field>
       <field name="description">19% BTW verlegd</field>
-      <field name="percentage" eval="Decimal('19')"/>
-      <field name="type">percentage</field>
       <field ref="vat_refund_verlegd" name="invoice_account"/>
       <field ref="vat_refund_verlegd" name="credit_note_account"/>
+      <field name="percentage" eval="Decimal('19')"/>
+      <field name="type">percentage</field>
       <field ref="tax_group_purchase" name="group"/>
-      <field ref="a_root" name="account"/>
+      <field ref="root_nl" name="account"/>
     </record>
     <record model="account.tax.template" id="btw_ink2_0_1">
       <field name="name">BTW te vorderen verlegd (inkopen1)</field>
       <field name="description">BTW te vorderen verlegd (inkopen1)</field>
-      <field name="percentage" eval="Decimal('-100')"/>
-      <field name="type">percentage</field>
       <field ref="vat_refund_verlegd" name="invoice_account"/>
       <field ref="vat_refund_verlegd" name="credit_note_account"/>
+      <field name="percentage" eval="Decimal('-100')"/>
+      <field name="type">percentage</field>
       <field ref="btw_code_2a" name="invoice_base_code"/>
       <field ref="btw_code_2a" name="invoice_tax_code"/>
       <field name="invoice_tax_sign" eval="-1"/>
@@ -4289,15 +4289,15 @@
       <field ref="btw_code_2a" name="credit_note_tax_code"/>
       <field ref="btw_ink2_0" name="parent"/>
       <field ref="tax_group_purchase" name="group"/>
-      <field ref="a_root" name="account"/>
+      <field ref="root_nl" name="account"/>
     </record>
     <record model="account.tax.template" id="btw_ink2_0_2">
       <field name="name">BTW te vorderen verlegd (inkopen2)</field>
       <field name="description">BTW te vorderen verlegd (inkopen2)</field>
-      <field name="percentage" eval="Decimal('-100')"/>
-      <field name="type">percentage</field>
       <field ref="vat_refund_verlegd" name="invoice_account"/>
       <field ref="vat_refund_verlegd" name="credit_note_account"/>
+      <field name="percentage" eval="Decimal('-100')"/>
+      <field name="type">percentage</field>
       <field ref="btw_code_5b" name="invoice_base_code"/>
       <field ref="btw_code_5b" name="invoice_tax_code"/>
       <field ref="btw_code_5b" name="credit_note_base_code"/>
@@ -4306,23 +4306,22 @@
       <field name="credit_note_tax_sign" eval="-1"/>
       <field ref="btw_ink2_0" name="parent"/>
       <field ref="tax_group_purchase" name="group"/>
-      <field ref="a_root" name="account"/>
+      <field ref="root_nl" name="account"/>
     </record>
     <record model="account.tax.template" id="btw_I_6">
       <field name="name">Inkopen import binnen EU laag</field>
       <field name="description">BTW import binnen EU</field>
-      <field name="percentage" eval="Decimal('6')"/>
-      <field name="type">percentage</field>
+      <field name="type">none</field>
       <field ref="tax_group_purchase" name="group"/>
-      <field ref="a_root" name="account"/>
+      <field ref="root_nl" name="account"/>
     </record>
     <record model="account.tax.template" id="btw_I_6_1">
       <field name="name">Inkopen import binnen EU laag(1)</field>
       <field name="description">Inkopen import binnen EU laag(1)</field>
-      <field name="percentage" eval="Decimal('-100')"/>
-      <field name="type">percentage</field>
       <field ref="vat_payable6" name="invoice_account"/>
       <field ref="vat_payable6" name="credit_note_account"/>
+      <field name="percentage" eval="Decimal('-100')"/>
+      <field name="type">percentage</field>
       <field ref="btw_code_4b" name="invoice_base_code"/>
       <field ref="btw_code_4b" name="invoice_tax_code"/>
       <field name="invoice_tax_sign" eval="-1"/>
@@ -4331,15 +4330,15 @@
       <field ref="btw_code_4b" name="credit_note_tax_code"/>
       <field ref="btw_I_6" name="parent"/>
       <field ref="tax_group_purchase" name="group"/>
-      <field ref="a_root" name="account"/>
+      <field ref="root_nl" name="account"/>
     </record>
     <record model="account.tax.template" id="btw_I_6_2">
       <field name="name">Inkopen import binnen EU laag(2)</field>
       <field name="description">Inkopen import binnen EU laag(2)</field>
-      <field name="percentage" eval="Decimal('-100')"/>
-      <field name="type">percentage</field>
       <field ref="vat_refund6" name="invoice_account"/>
       <field ref="vat_refund6" name="credit_note_account"/>
+      <field name="percentage" eval="Decimal('-100')"/>
+      <field name="type">percentage</field>
       <field ref="btw_code_5b" name="invoice_base_code"/>
       <field ref="btw_code_5b" name="invoice_tax_code"/>
       <field ref="btw_code_5b" name="credit_note_base_code"/>
@@ -4348,23 +4347,22 @@
       <field name="credit_note_tax_sign" eval="-1"/>
       <field ref="btw_I_6" name="parent"/>
       <field ref="tax_group_purchase" name="group"/>
-      <field ref="a_root" name="account"/>
+      <field ref="root_nl" name="account"/>
     </record>
     <record model="account.tax.template" id="btw_I_19">
       <field name="name">Inkopen import binnen EU hoog</field>
       <field name="description">0% BTW import binnen EU</field>
-      <field name="percentage" eval="Decimal('19')"/>
-      <field name="type">percentage</field>
+      <field name="type">none</field>
       <field ref="tax_group_purchase" name="group"/>
-      <field ref="a_root" name="account"/>
+      <field ref="root_nl" name="account"/>
     </record>
     <record model="account.tax.template" id="btw_I_19_1">
       <field name="name">Inkopen import binnen EU hoog(1)</field>
       <field name="description">Inkopen import binnen EU hoog(1)</field>
-      <field name="percentage" eval="Decimal('-100')"/>
-      <field name="type">percentage</field>
       <field ref="vat_payable19" name="invoice_account"/>
       <field ref="vat_payable19" name="credit_note_account"/>
+      <field name="percentage" eval="Decimal('-100')"/>
+      <field name="type">percentage</field>
       <field ref="btw_code_4b" name="invoice_base_code"/>
       <field ref="btw_code_4b" name="invoice_tax_code"/>
       <field name="invoice_tax_sign" eval="-1"/>
@@ -4373,15 +4371,15 @@
       <field ref="btw_code_4b" name="credit_note_tax_code"/>
       <field ref="btw_I_19" name="parent"/>
       <field ref="tax_group_purchase" name="group"/>
-      <field ref="a_root" name="account"/>
+      <field ref="root_nl" name="account"/>
     </record>
     <record model="account.tax.template" id="btw_I_19_2">
       <field name="name">Inkopen import binnen EU hoog(2)</field>
       <field name="description">Inkopen import binnen EU hoog(2)</field>
-      <field name="percentage" eval="Decimal('-100')"/>
-      <field name="type">percentage</field>
       <field ref="vat_refund19" name="invoice_account"/>
       <field ref="vat_refund19" name="credit_note_account"/>
+      <field name="percentage" eval="Decimal('-100')"/>
+      <field name="type">percentage</field>
       <field ref="btw_code_5b" name="invoice_base_code"/>
       <field ref="btw_code_5b" name="invoice_tax_code"/>
       <field ref="btw_code_5b" name="credit_note_base_code"/>
@@ -4390,23 +4388,22 @@
       <field name="credit_note_tax_sign" eval="-1"/>
       <field ref="btw_I_19" name="parent"/>
       <field ref="tax_group_purchase" name="group"/>
-      <field ref="a_root" name="account"/>
+      <field ref="root_nl" name="account"/>
     </record>
     <record model="account.tax.template" id="btw_I_overig">
-      <field name="name">Inkopen import binnen EU hoog</field>
-      <field name="description">0% BTW import binnen EU</field>
-      <field name="percentage" eval="Decimal('19')"/>
-      <field name="type">percentage</field>
+      <field name="name">Inkopen import binnen EU overig</field>
+      <field name="description">Variable BTW import binnen EU</field>
+      <field name="type">none</field>
       <field ref="tax_group_purchase" name="group"/>
-      <field ref="a_root" name="account"/>
+      <field ref="root_nl" name="account"/>
     </record>
     <record model="account.tax.template" id="btw_I_overig_1">
-      <field name="name">Inkopen import binnen EU hoog(1)</field>
-      <field name="description">Inkopen import binnen EU hoog(1)</field>
-      <field name="percentage" eval="Decimal('-100')"/>
-      <field name="type">percentage</field>
+      <field name="name">Inkopen import binnen EU overig(1)</field>
+      <field name="description">Inkopen import binnen EU overig(1)</field>
       <field ref="vat_payable19" name="invoice_account"/>
       <field ref="vat_payable19" name="credit_note_account"/>
+      <field name="percentage" eval="Decimal('-100')"/>
+      <field name="type">percentage</field>
       <field ref="btw_code_4b" name="invoice_base_code"/>
       <field ref="btw_code_4b" name="invoice_tax_code"/>
       <field name="invoice_tax_sign" eval="-1"/>
@@ -4415,15 +4412,15 @@
       <field ref="btw_code_4b" name="credit_note_tax_code"/>
       <field ref="btw_I_overig" name="parent"/>
       <field ref="tax_group_purchase" name="group"/>
-      <field ref="a_root" name="account"/>
+      <field ref="root_nl" name="account"/>
     </record>
     <record model="account.tax.template" id="btw_I_overig_2">
-      <field name="name">Inkopen import binnen EU hoog(2)</field>
-      <field name="description">Inkopen import binnen EU hoog(2)</field>
-      <field name="percentage" eval="Decimal('-100')"/>
-      <field name="type">percentage</field>
+      <field name="name">Inkopen import binnen EU overig(2)</field>
+      <field name="description">Inkopen import binnen EU overig(2)</field>
       <field ref="vat_refund19" name="invoice_account"/>
       <field ref="vat_refund19" name="credit_note_account"/>
+      <field name="percentage" eval="Decimal('-100')"/>
+      <field name="type">percentage</field>
       <field ref="btw_code_5b" name="invoice_base_code"/>
       <field ref="btw_code_5b" name="invoice_tax_code"/>
       <field ref="btw_code_5b" name="credit_note_base_code"/>
@@ -4432,45 +4429,44 @@
       <field name="credit_note_tax_sign" eval="-1"/>
       <field ref="btw_I_overig" name="parent"/>
       <field ref="tax_group_purchase" name="group"/>
-      <field ref="a_root" name="account"/>
+      <field ref="root_nl" name="account"/>
     </record>
     <record model="account.tax.template" id="btw_X0">
       <field name="name">Verkopen export binnen EU</field>
       <field name="description">BTW export binnen EU</field>
-      <field name="percentage" eval="Decimal('0')"/>
-      <field name="type">percentage</field>
       <field ref="vat_payable0" name="invoice_account"/>
       <field ref="vat_payable0" name="credit_note_account"/>
+      <field name="percentage" eval="Decimal('0')"/>
+      <field name="type">percentage</field>
       <field name="credit_note_base_sign" eval="-1"/>
       <field ref="tax_group_sale" name="group"/>
-      <field ref="a_root" name="account"/>
+      <field ref="root_nl" name="account"/>
     </record>
     <record model="account.tax.template" id="btw_X2">
       <field name="name">Installatie/afstandsverkopen binnen EU</field>
       <field name="description">Inst./afst.verkopen binnen EU</field>
-      <field name="percentage" eval="Decimal('0')"/>
-      <field name="type">percentage</field>
       <field ref="vat_payable0" name="invoice_account"/>
       <field ref="vat_payable0" name="credit_note_account"/>
+      <field name="percentage" eval="Decimal('0')"/>
+      <field name="type">percentage</field>
       <field name="credit_note_base_sign" eval="-1"/>
       <field ref="tax_group_sale" name="group"/>
-      <field ref="a_root" name="account"/>
+      <field ref="root_nl" name="account"/>
     </record>
     <record model="account.tax.template" id="btw_E1">
       <field name="name">Inkopen import buiten EU laag</field>
       <field name="description">BTW import buiten EU</field>
-      <field name="percentage" eval="Decimal('6')"/>
-      <field name="type">percentage</field>
+      <field name="type">none</field>
       <field ref="tax_group_purchase" name="group"/>
-      <field ref="a_root" name="account"/>
+      <field ref="root_nl" name="account"/>
     </record>
     <record model="account.tax.template" id="btw_E1_1">
       <field name="name">Inkopen import buiten EU laag(1)</field>
       <field name="description">Inkopen import buiten EU laag(1)</field>
-      <field name="percentage" eval="Decimal('-100')"/>
-      <field name="type">percentage</field>
       <field ref="vat_payable6" name="invoice_account"/>
       <field ref="vat_payable6" name="credit_note_account"/>
+      <field name="percentage" eval="Decimal('-100')"/>
+      <field name="type">percentage</field>
       <field ref="btw_code_4a" name="invoice_base_code"/>
       <field ref="btw_code_4a" name="invoice_tax_code"/>
       <field name="invoice_tax_sign" eval="-1"/>
@@ -4479,15 +4475,15 @@
       <field ref="btw_code_4a" name="credit_note_tax_code"/>
       <field ref="btw_E1" name="parent"/>
       <field ref="tax_group_purchase" name="group"/>
-      <field ref="a_root" name="account"/>
+      <field ref="root_nl" name="account"/>
     </record>
     <record model="account.tax.template" id="btw_E1_2">
       <field name="name">Inkopen import buiten EU laag(2)</field>
       <field name="description">Inkopen import buiten EU laag(2)</field>
-      <field name="percentage" eval="Decimal('-100')"/>
-      <field name="type">percentage</field>
       <field ref="vat_refund6" name="invoice_account"/>
       <field ref="vat_refund6" name="credit_note_account"/>
+      <field name="percentage" eval="Decimal('-100')"/>
+      <field name="type">percentage</field>
       <field ref="btw_code_5b" name="invoice_base_code"/>
       <field ref="btw_code_5b" name="invoice_tax_code"/>
       <field ref="btw_code_5b" name="credit_note_base_code"/>
@@ -4496,23 +4492,22 @@
       <field name="credit_note_tax_sign" eval="-1"/>
       <field ref="btw_E1" name="parent"/>
       <field ref="tax_group_purchase" name="group"/>
-      <field ref="a_root" name="account"/>
+      <field ref="root_nl" name="account"/>
     </record>
     <record model="account.tax.template" id="btw_E2">
       <field name="name">Inkopen import buiten EU hoog</field>
       <field name="description">BTW import buiten EU</field>
-      <field name="percentage" eval="Decimal('19')"/>
-      <field name="type">percentage</field>
+      <field name="type">none</field>
       <field ref="tax_group_purchase" name="group"/>
-      <field ref="a_root" name="account"/>
+      <field ref="root_nl" name="account"/>
     </record>
     <record model="account.tax.template" id="btw_E2_1">
       <field name="name">Inkopen import buiten EU hoog(1)</field>
       <field name="description">Inkopen import buiten EU hoog(1)</field>
-      <field name="percentage" eval="Decimal('-100')"/>
-      <field name="type">percentage</field>
       <field ref="vat_payable19" name="invoice_account"/>
       <field ref="vat_payable19" name="credit_note_account"/>
+      <field name="percentage" eval="Decimal('-100')"/>
+      <field name="type">percentage</field>
       <field ref="btw_code_4a" name="invoice_base_code"/>
       <field ref="btw_code_4a" name="invoice_tax_code"/>
       <field name="invoice_tax_sign" eval="-1"/>
@@ -4521,15 +4516,15 @@
       <field ref="btw_code_4a" name="credit_note_tax_code"/>
       <field ref="btw_E2" name="parent"/>
       <field ref="tax_group_purchase" name="group"/>
-      <field ref="a_root" name="account"/>
+      <field ref="root_nl" name="account"/>
     </record>
     <record model="account.tax.template" id="btw_E2_2">
       <field name="name">Inkopen import buiten EU hoog(2)</field>
       <field name="description">Inkopen import buiten EU hoog(2)</field>
-      <field name="percentage" eval="Decimal('-100')"/>
-      <field name="type">percentage</field>
       <field ref="vat_refund19" name="invoice_account"/>
       <field ref="vat_refund19" name="credit_note_account"/>
+      <field name="percentage" eval="Decimal('-100')"/>
+      <field name="type">percentage</field>
       <field ref="btw_code_5b" name="invoice_base_code"/>
       <field ref="btw_code_5b" name="invoice_tax_code"/>
       <field ref="btw_code_5b" name="credit_note_base_code"/>
@@ -4538,24 +4533,22 @@
       <field name="credit_note_tax_sign" eval="-1"/>
       <field ref="btw_E2" name="parent"/>
       <field ref="tax_group_purchase" name="group"/>
-      <field ref="a_root" name="account"/>
+      <field ref="root_nl" name="account"/>
     </record>
     <record model="account.tax.template" id="btw_E_overig">
       <field name="name">Inkopen import buiten EU overig</field>
       <field name="description">BTW import buiten EU</field>
-      <field name="percentage" eval="Decimal('19')"/>
-      <field name="type">percentage</field>
-      <field name="credit_note_base_sign" eval="-1"/>
+      <field name="type">none</field>
       <field ref="tax_group_purchase" name="group"/>
-      <field ref="a_root" name="account"/>
+      <field ref="root_nl" name="account"/>
     </record>
     <record model="account.tax.template" id="btw_E_overig_1">
       <field name="name">Inkopen import buiten EU overig(1)</field>
       <field name="description">Inkopen import buiten EU overig(1)</field>
-      <field name="percentage" eval="Decimal('-100')"/>
-      <field name="type">percentage</field>
       <field ref="vat_payable19" name="invoice_account"/>
       <field ref="vat_payable19" name="credit_note_account"/>
+      <field name="percentage" eval="Decimal('-100')"/>
+      <field name="type">percentage</field>
       <field ref="btw_code_4a" name="invoice_base_code"/>
       <field ref="btw_code_4a" name="invoice_tax_code"/>
       <field name="invoice_tax_sign" eval="-1"/>
@@ -4564,15 +4557,15 @@
       <field ref="btw_code_4a" name="credit_note_tax_code"/>
       <field ref="btw_E_overig" name="parent"/>
       <field ref="tax_group_purchase" name="group"/>
-      <field ref="a_root" name="account"/>
+      <field ref="root_nl" name="account"/>
     </record>
     <record model="account.tax.template" id="btw_E_overig_2">
       <field name="name">Inkopen import buiten EU overig(2)</field>
       <field name="description">Inkopen import buiten EU overig(2)</field>
-      <field name="percentage" eval="Decimal('-100')"/>
-      <field name="type">percentage</field>
       <field ref="vat_refund19" name="invoice_account"/>
       <field ref="vat_refund19" name="credit_note_account"/>
+      <field name="percentage" eval="Decimal('-100')"/>
+      <field name="type">percentage</field>
       <field ref="btw_code_5b" name="invoice_base_code"/>
       <field ref="btw_code_5b" name="invoice_tax_code"/>
       <field ref="btw_code_5b" name="credit_note_base_code"/>
@@ -4581,18 +4574,18 @@
       <field name="credit_note_tax_sign" eval="-1"/>
       <field ref="btw_E_overig" name="parent"/>
       <field ref="tax_group_purchase" name="group"/>
-      <field ref="a_root" name="account"/>
+      <field ref="root_nl" name="account"/>
     </record>
     <record model="account.tax.template" id="btw_X1">
       <field name="name">Verkopen export buiten EU</field>
       <field name="description">BTW export buiten EU</field>
-      <field name="percentage" eval="Decimal('0')"/>
-      <field name="type">percentage</field>
       <field ref="vat_payable0" name="invoice_account"/>
       <field ref="vat_payable0" name="credit_note_account"/>
+      <field name="percentage" eval="Decimal('0')"/>
+      <field name="type">percentage</field>
       <field name="credit_note_base_sign" eval="-1"/>
       <field ref="tax_group_sale" name="group"/>
-      <field ref="a_root" name="account"/>
+      <field ref="root_nl" name="account"/>
     </record>
   </data>
 </tryton>
