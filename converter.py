@@ -98,10 +98,18 @@ class Converter(object):
             f = []
             f.append(m.field(name, name='name'))
             f.append(m.field(code, name='code'))
-            f.append(m.field(kind, name='kind'))
+            ref = None
             if typ:
                 ref = typ[0].get("ref")
                 f.append(m.field(name='type',ref=ref))
+
+            if ref == 'user_type_income':
+                kind = 'revenue'
+            elif ref == 'user_type_expense':
+                kind = 'expense'
+
+            f.append(m.field(kind, name='kind'))
+
             if defer:
                 defer = str(not eval(defer[0].get("eval")))
                 f.append(m.field(name='deferral', eval=defer))
