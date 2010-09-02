@@ -16,7 +16,7 @@ requires.append('trytond >= %s.%s, < %s.%s' %
                 (major_version, minor_version,
                  major_version, minor_version + 1))
 
-setup(name='trytond_modules_account_nl',
+setup(name='trytond_account_nl',
       version=info.get('version','0.0.1'),
       description=info.get('description',''),
       author=info.get('author',''),

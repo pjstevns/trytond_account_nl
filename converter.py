@@ -80,7 +80,7 @@ class Converter(object):
                 m.field("NEDERLANDS STANDAARD GROOTBOEKSCHEMA", name="name"),
                 m.field("view", name="kind"),
                 m.field(name="type", ref="nl"),
-                id="a_root", 
+                id="root_nl", 
                 model="account.account.template",
             )
         )
@@ -107,6 +107,8 @@ class Converter(object):
                 f.append(m.field(name='deferral', eval=defer))
             if parent:
                 parent = parent[0].get("ref")
+                if parent == 'a_root':
+                    parent = 'root_nl'
                 f.append(m.field(name='parent', ref=parent))
             f = tuple(f)
             r.append(m.record(*f, model='account.account.template', id=id))
@@ -130,7 +132,7 @@ class Converter(object):
                     r.append(
                         m.record(
                             m.field(name, name='name'),
-                            m.field(name='account',ref='a_root'),
+                            m.field(name='account',ref='root_nl'),
                             model="account.tax.code.template",
                             id="tax_code_nl"
                         )
@@ -138,7 +140,7 @@ class Converter(object):
                     continue
 
             f.append(m.field(name, name='name'))
-            f.append(m.field(name='account',ref='a_root'))
+            f.append(m.field(name='account',ref='root_nl'))
 
             parent = parent[0].get("ref")
             if parent == origroot:
@@ -192,18 +194,6 @@ class Converter(object):
                 f.append(m.field(description, name='description'))
             else:
                 f.append(m.field(name, name='description'))
-
-            amount             = e.xpath("field[@name='amount']")
-            if amount: 
-                amount = int(float(amount[0].get("eval")) * 100)
-                f.append(
-                    m.field(
-                        name='percentage', 
-                        eval="Decimal('%d')" % amount,
-                    )
-                )
-                f.append(m.field('percentage', name='type'))
-
             account_collected  = e.xpath("field[@name='account_collected_id']")
             if account_collected: 
                 account_collected = account_collected[0].get("ref")
@@ -223,37 +213,52 @@ class Converter(object):
                     )
                 )
             
-            tax_code           = e.xpath("field[@name='tax_code_id']")
-            if tax_code: 
-                tax_code = tax_code[0].get("ref")
-                f.append(m.field(name='invoice_base_code', ref=tax_code))
-                f.append(m.field(name='invoice_tax_code', ref=tax_code))
+            if account_collected and account_paid:
 
-            tax_sign           = e.xpath("field[@name='tax_sign']")
-            if tax_sign: 
-                tax_sign = tax_sign[0].get("eval")
-                f.append(m.field(name='invoice_tax_sign', eval=tax_sign))
+                amount             = e.xpath("field[@name='amount']")
+                if amount: 
+                    amount = int(float(amount[0].get("eval")) * 100)
+                    f.append(
+                        m.field(
+                            name='percentage', 
+                            eval="Decimal('%d')" % amount,
+                        )
+                    )
+                    f.append(m.field('percentage', name='type'))
 
-            base_sign          = e.xpath("field[@name='base_sign']")
-            if base_sign: 
-                base_sign = base_sign[0].get("eval")
-                f.append(m.field(name='invoice_base_sign', eval=base_sign))
-           
-            ref_tax_code       = e.xpath("field[@name='ref_tax_code_id']")
-            if ref_tax_code: 
-                ref_tax_code = ref_tax_code[0].get("ref")
-                f.append(m.field(name='credit_note_base_code', ref=ref_tax_code))
-                f.append(m.field(name='credit_note_tax_code', ref=ref_tax_code))
+                tax_code           = e.xpath("field[@name='tax_code_id']")
+                if tax_code: 
+                    tax_code = tax_code[0].get("ref")
+                    f.append(m.field(name='invoice_base_code', ref=tax_code))
+                    f.append(m.field(name='invoice_tax_code', ref=tax_code))
 
-            ref_base_sign      = e.xpath("field[@name='ref_base_sign']")
-            if ref_base_sign: 
-                ref_base_sign = ref_base_sign[0].get("eval")
-                f.append(m.field(name='credit_note_base_sign', eval=ref_base_sign))
+                tax_sign           = e.xpath("field[@name='tax_sign']")
+                if tax_sign: 
+                    tax_sign = tax_sign[0].get("eval")
+                    f.append(m.field(name='invoice_tax_sign', eval=tax_sign))
 
-            ref_tax_sign       = e.xpath("field[@name='ref_tax_sign']")
-            if ref_tax_sign: 
-                ref_tax_sign = ref_tax_sign[0].get("eval")
-                f.append(m.field(name='credit_note_tax_sign', eval=ref_tax_sign))
+                base_sign          = e.xpath("field[@name='base_sign']")
+                if base_sign: 
+                    base_sign = base_sign[0].get("eval")
+                    f.append(m.field(name='invoice_base_sign', eval=base_sign))
+               
+                ref_tax_code       = e.xpath("field[@name='ref_tax_code_id']")
+                if ref_tax_code: 
+                    ref_tax_code = ref_tax_code[0].get("ref")
+                    f.append(m.field(name='credit_note_base_code', ref=ref_tax_code))
+                    f.append(m.field(name='credit_note_tax_code', ref=ref_tax_code))
+
+                ref_base_sign      = e.xpath("field[@name='ref_base_sign']")
+                if ref_base_sign: 
+                    ref_base_sign = ref_base_sign[0].get("eval")
+                    f.append(m.field(name='credit_note_base_sign', eval=ref_base_sign))
+
+                ref_tax_sign       = e.xpath("field[@name='ref_tax_sign']")
+                if ref_tax_sign: 
+                    ref_tax_sign = ref_tax_sign[0].get("eval")
+                    f.append(m.field(name='credit_note_tax_sign', eval=ref_tax_sign))
+            else:
+                f.append(m.field('none', name='type'))
 
             parent             = e.xpath("field[@name='parent_id']")
             if parent:
@@ -263,7 +268,7 @@ class Converter(object):
             tax_type           = e.xpath("field[@name='type_tax_use']")[0].text
             f.append(m.field(name='group', ref='tax_group_%s' % tax_type))
 
-            f.append(m.field(name='account', ref='a_root'))
+            f.append(m.field(name='account', ref='root_nl'))
 
             f = tuple(f)
             r.append(
