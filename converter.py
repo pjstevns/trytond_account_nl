@@ -286,11 +286,71 @@ class Converter(object):
         return r
 
     def build_tax_rule_template(self):
-        return []
+        model="account.tax.rule.template"
+        m = self.maker
+        return [
+            m.record(
+                m.field("Levering binnenland", name="name"),
+                m.field(ref="root_nl", name="account"),
+                model=model, 
+                id="tax_rule_1",
+            ),
+            m.record(
+                m.field("Verleggingsregelingen", name="name"),
+                m.field(ref="root_nl", name="account"),
+                model=model,
+                id="tax_rule_2",
+            ),
+            m.record(
+                m.field("Levering vanuit buitenland", name="name"),
+                m.field(ref="root_nl", name="account"),
+                model=model,
+                id="tax_rule_4",
+            ),
+        ]
 
     def build_tax_rule_line_template(self):
-        return []
+        model="account.tax.rule.line.template"
+        m = self.maker
+        return [
+            m.record(
+                m.field(name="rule",ref="tax_rule_1"),
+                m.field(name="group",ref="tax_group_sale"),
+                m.field(name="tax",ref="btw_0"),
+                model=model, id="tax_rule_line_1_0"
+            ),
+            m.record(
+                m.field(name="rule",ref="tax_rule_1"),
+                m.field(name="group",ref="tax_group_sale"),
+                m.field(name="tax",ref="btw_6"),
+                model=model, id="tax_rule_line_1_6",
+            ),
+            m.record(
+                m.field(name="rule",ref="tax_rule_1"),
+                m.field(name="group",ref="tax_group_sale"),
+                m.field(name="tax",ref="btw_19"),
+                model=model, id="tax_rule_line_1_19"
+            ),
 
+            m.record(
+                m.field(name="rule",ref="tax_rule_4"),
+                m.field(name="group",ref="tax_group_purchase"),
+                m.field(name="tax",ref="btw_E1_1"),
+                model=model, id="tax_rule_line_4_1"
+            ),
+            m.record(
+                m.field(name="rule",ref="tax_rule_4"),
+                m.field(name="group",ref="tax_group_purchase"),
+                m.field(name="tax", ref="btw_E2_1"),
+                model=model, id="tax_rule_line_4_2"
+            ),
+            m.record(
+                m.field(name="rule",ref="tax_rule_4"),
+                m.field(name="group",ref="tax_group_purchase"),
+                m.field(name="tax",ref="btw_E_overig_1"),
+                model=model, id="tax_rule_line_4_overig"
+            ),
+        ]
 
     def write(self, outfile=None):
         if not outfile:
