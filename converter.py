@@ -93,7 +93,7 @@ class Converter(object):
             code = e.xpath("field[@name='code']")[0].text
             kind = e.xpath("field[@name='type']")[0].text
             typ = e.xpath("field[@name='user_type']")
-            defer = e.xpath("field[@name='reconcile']")
+            reconcile = e.xpath("field[@name='reconcile']")
             parent = e.xpath("field[@name='parent_id']")
             f = []
             f.append(m.field(name, name='name'))
@@ -110,9 +110,10 @@ class Converter(object):
 
             f.append(m.field(kind, name='kind'))
 
-            if defer:
-                defer = str(not eval(defer[0].get("eval")))
-                f.append(m.field(name='deferral', eval=defer))
+            if reconcile:
+                reconcile = str(eval(reconcile[0].get("eval")))
+                f.append(m.field(name='reconcile', eval=reconcile))
+
             if parent:
                 parent = parent[0].get("ref")
                 if parent == 'a_root':
