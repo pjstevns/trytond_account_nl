@@ -297,10 +297,16 @@ class Converter(object):
                 id="tax_rule_1",
             ),
             m.record(
-                m.field("Verleggingsregelingen", name="name"),
+                m.field("Verleggingsregelingen binnenland", name="name"),
                 m.field(ref="root_nl", name="account"),
                 model=model,
                 id="tax_rule_2",
+            ),
+            m.record(
+                m.field("Prestaties naar of in het buitenland", name="name"),
+                m.field(ref="root_nl", name="account"),
+                model=model,
+                id="tax_rule_3",
             ),
             m.record(
                 m.field("Levering vanuit buitenland", name="name"),
@@ -314,6 +320,7 @@ class Converter(object):
         model="account.tax.rule.line.template"
         m = self.maker
         return [
+            ## 1. verkoop binnenland
             m.record(
                 m.field(name="rule",ref="tax_rule_1"),
                 m.field(name="group",ref="tax_group_sale"),
@@ -333,6 +340,27 @@ class Converter(object):
                 model=model, id="tax_rule_line_1_19"
             ),
 
+            ## 3. export
+            m.record(
+                m.field(name="rule", ref="tax_rule_3"),
+                m.field(name="group", ref="tax_group_sale"),
+                m.field(name="tax", ref="btw_X0"),
+                model=model, id="tax_rule_line_3_0",
+            ),
+            m.record(
+                m.field(name="rule", ref="tax_rule_3"),
+                m.field(name="group", ref="tax_group_sale"),
+                m.field(name="tax", ref="btw_X1"),
+                model=model, id="tax_rule_line_3_1",
+            ),
+            m.record(
+                m.field(name="rule", ref="tax_rule_3"),
+                m.field(name="group", ref="tax_group_sale"),
+                m.field(name="tax", ref="btw_X2"),
+                model=model, id="tax_rule_line_3_2",
+            ),
+
+            ## 4. import
             m.record(
                 m.field(name="rule",ref="tax_rule_4"),
                 m.field(name="group",ref="tax_group_purchase"),
