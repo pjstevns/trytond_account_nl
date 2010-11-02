@@ -3,7 +3,7 @@
 {
     'name': 'Account Netherlands',
     'name_nl_NL': 'Boekhouding Nederland',
-    'version': '1.7.0',
+    'version': '1.8.0',
     'author': 'NFG',
     'email': 'info@nfg.nl',
     'website': 'http://www.tryton.org/',
@@ -11,7 +11,8 @@
 Usefull to create a Dutch account chart with the wizard in
 "Financial Management>Configuration>General Account>Create Chart of Account from Template".
 ''',
-    'description_nl_NL': '''Definieert een nederlands grootboekschema.
+    'description_nl_NL': '''Definieert een nederlands grootboekschema, en
+    belasting schema.
 ''',
     'depends': [
         'account',
