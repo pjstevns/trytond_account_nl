@@ -3,7 +3,7 @@
 {
     'name': 'Account Netherlands',
     'name_nl_NL': 'Boekhouding Nederland',
-    'version': '1.8.0',
+    'version': '2.0.0',
     'author': 'NFG',
     'email': 'info@nfg.nl',
     'website': 'http://www.tryton.org/',
