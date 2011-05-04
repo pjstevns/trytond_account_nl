@@ -3,10 +3,10 @@
 {
     'name': 'Account Netherlands',
     'name_nl_NL': 'Boekhouding Nederland',
-    'version': '2.0.0',
+    'version': '2.0.1',
     'author': 'NFG',
     'email': 'info@nfg.nl',
-    'website': 'http://www.tryton.org/',
+    'website': 'https://github.com/pjstevns/trytond_account_nl',
     'description': '''Define an account chart template for The Netherlands.
 Usefull to create a Dutch account chart with the wizard in
 "Financial Management>Configuration>General Account>Create Chart of Account from Template".
