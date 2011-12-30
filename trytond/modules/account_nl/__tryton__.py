@@ -3,7 +3,7 @@
 {
     'name': 'Account Netherlands',
     'name_nl_NL': 'Boekhouding Nederland',
-    'version': '2.0.1',
+    'version': '2.2.1',
     'author': 'NFG',
     'email': 'info@nfg.nl',
     'website': 'https://github.com/pjstevns/trytond_account_nl',
