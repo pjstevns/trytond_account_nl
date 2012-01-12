@@ -3,3 +3,5 @@
 *.new
 *.swo
 *egg-info/
+dist/
+build/
